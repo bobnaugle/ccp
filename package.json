@@ -1,0 +1,17 @@
+{
+  "name": "ccp",
+  "version": "1.0.0",
+  "description": "Batch Processing of Credit Card Transactions",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "express": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "multer": "*"
+  }
+}
