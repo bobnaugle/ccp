@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser')
+var database = require('./mongodb.js')
 var app = express();
 
 app.use(bodyParser.json())
@@ -34,7 +35,7 @@ var server = app.listen(8081, function () {
 })
 
 function storeTxn( txn ) {
-	// TODO
+	database(txn);
 }
 
 function approval( txn ) {
