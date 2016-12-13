@@ -1,0 +1,17 @@
+{
+  "name": "ccp-batch",
+  "version": "1.0.0",
+  "description": "Batch Processing of Credit Card Transactions",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+
+  },
+  "dependencies": {
+    "cron": "^1.0.0"
+
+  },
+  "engines": {
+    "node": ">=4.3.2"
+  }
+}
