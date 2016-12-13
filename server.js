@@ -5,28 +5,43 @@ var app = express();
 app.use(bodyParser.json())
 
 app.post('/processTxn', function (request, response) {
-   txn = request.body
-   console.log("The incoming txn is:")
-   console.log(txn)
-   response.writeHead(200, {'Content-Type': 'text/plain'});
-   approvalCode = approval(txn);
-   response.end(approvalCode);
-       
+	// parse the request for txn JSON object 
+	txn = request.body;
+	console.log("The incoming txn is:");
+	console.log(txn);
+
+	// get approval
+	approval(txn);
+
+	if (txn.approvalCode.startsWith("error")) {
+		statusCode = 400;
+	} else {
+		// persiste the approved txn 
+		storeTxn(txn);
+
+		statusCode = 200;
+	}
+
+	// response 
+	response.writeHead(statusCode, {'Content-Type': 'text/plain'});
+	response.end(txn.approvalCode);
 })
 
 var server = app.listen(8081, function () {
-
-  var host = server.address().address
-  var port = server.address().port
-  console.log("Example app listening at http://%s:%s", host, port)
-
+	var host = server.address().address;
+	var port = server.address().port;
+	console.log("CCP listening at http://%s:%s", host, port);
 })
+
+function storeTxn( txn ) {
+	// TODO
+}
 
 function approval( txn ) {
 	if (txn.cardNumber.length > 2) {
-		return "ABC123"
+		txn.approvalCode = "ABC123";
 	} else {
-		return "error"
+		txn.approvalCode = "error";
 	}
 }
 
