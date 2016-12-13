@@ -1,2 +1,5 @@
 *.iml
 
+.project
+node_modules
+*.log
