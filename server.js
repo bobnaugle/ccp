@@ -37,7 +37,7 @@ var server = app.listen(8081, function () {
 })
 
 function storeTxn( txn ) {
-	//database(txn);
+	database(txn);
 }
 
 function approval( txn ) {
