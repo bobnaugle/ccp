@@ -1,9 +1,16 @@
 var express = require('express');
 var bodyParser = require('body-parser')
+var path = require("path");
 var database = require('./mongodb.js')
 var app = express();
 
 app.use(bodyParser.json())
+
+app.get('/',function(req,res){
+    
+    res.sendFile(path.join(__dirname+'/index.html'));
+
+})
 
 app.post('/processTxn', function (request, response) {
 	// parse the request for txn JSON object 
@@ -46,17 +53,13 @@ function approval( txn ) {
 	}
 }
 
-function settlement( txns ) {
-	// TODO
-}
-
 /*
 Requires the following module installed 
 npm install express --save
 npm install body-parser --save
 npm install cookie-parser --save
 npm install multer --save
-npm install mongodb --save
+npm install mongoose --save
 */
 /*
 Test with the following curl command (with the endpoint url adjusted):
