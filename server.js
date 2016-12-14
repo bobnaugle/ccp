@@ -4,13 +4,8 @@ var path = require("path");
 var database = require('./mongodb.js')
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json())
-
-app.get('/',function(req,res){
-    
-    res.sendFile(path.join(__dirname+'/index.html'));
-
-})
 
 app.post('/processTxn', function (request, response) {
 	// parse the request for txn JSON object 
