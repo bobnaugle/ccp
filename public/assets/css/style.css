@@ -1,0 +1,43 @@
+.inner.cover {
+	text-align:left;
+}
+
+.loader {
+	width:100%;
+	height:128px;
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.status {
+	padding:10px;
+	margin-top:10px;
+	color:#3f3;
+	text-shadow:none;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.scroll {
+	max-height:200px;
+	overflow-y:auto;
+}
+
+.btn {
+    border: solid 1px #ccc; 
+    padding:0.4em 0.7em; 
+	color:white;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-transition: background-color 200ms linear;
+	-moz-transition: background-color 200ms linear; 
+	-o-transition: background-color 200ms linear;
+	-ms-transition: background-color 200ms linear;
+	transition: all 200ms linear;
+	background-color: #16a6b6;
+	cursor: pointer;
+	text-align: center;
+}

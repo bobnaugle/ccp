@@ -1,1 +1,57 @@
-Please make me better
+<!doctype html>
+<html ng-app="CCrUS">
+    <head>
+	    <title>Credit Card R Us</title>
+	    <meta charset="utf-8"></meta>
+	    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	    <script src="js/libs/jquery.js"></script>
+        <script src="js/libs/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="assets/css/cover.css"/>
+	    <link rel="stylesheet" href="assets/css/style.css"/>
+    </head>
+    <body ng-controller="mainController">
+        <div id="CCrUS" class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <script src="app.js"></script>
+                <div class="inner">
+                    <h3 class="masthead">Credit Card R Us</h3>
+                </div>
+                <div class="cover-container">
+                    <h4 class="cover-heading">Submit Credit Card Info for Processing</h4>
+                    <form name="submitForm" ng-submit="postData()">
+                        <div class="form-group">
+		                    <input type="text" class="form-control" name="merchantId" id="merchantId" ng-model="data.merchantId" placeholder="Enter Merchant ID"></input>
+	                    </div>
+	                    <div class="form-group">
+	                        <input class="form-control" name="customerName" id="customerName" ng-model="data.customerName" placeholder="Enter Customer Name"></input>
+	                    </div>
+	                    <div class="form-group">
+	                        <input class="form-control" name="customerZip" id="customerZip" ng-model="data.customerZip" placeholder="Enter Customer ZipCode"></input>
+	                    </div>
+	                    <div class="form-group">
+	                        <input class="form-control" name="cardNumber" id="cardNumber" ng-model="data.cardNumber" placeholder="Enter Credit Card Number"></input>
+	                    </div>
+	                    <div class="form-group">
+	                        <input class="form-control" name="cardExpiration" id="cardExpiration" ng-model="data.cardExpiration" placeholder="Enter Card Expiration Date"></input>
+	                    </div>
+	                    <div class="form-group">
+	                        <input class="form-control" name="cardCVV" id="cardCVV" ng-model="data.cardCVV" placeholder="Enter Card CVV"></input>
+	                    </div>
+	                    <div class="form-group">
+                            <input class="form-control" name="amount" id="amount" ng-model="data.amount" placeholder="Enter Amount"></input>
+                        </div>
+                        <button type="submit" class="btn btn-md btn-default" onclick="clearForm()">Process Credit Card</button>
+	                </form>
+	                <p class="status" ng-class="status_class" ng-show="status" ng-bind="status"></p>	                
+                </div>
+                </div> 
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>
