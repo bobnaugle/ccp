@@ -42,9 +42,9 @@ function storeTxn( txn ) {
 
 function approval( txn ) {
 	if (txn.cardNumber.length > 2) {
-		txn.approvalCode = "ABC123";
+		txn.approvalCode = Math.round( Math.random() * 1000000 );
 	} else {
-		txn.approvalCode = "error";
+		txn.approvalCode = "error - card number too short";
 	}
 }
 
