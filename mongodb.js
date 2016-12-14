@@ -20,16 +20,24 @@ try {
     console.log(err);
 }
 
-module.exports = function(txn) {
-    model.create({
-          merchantId: txn.merchantId,
-          customerName: txn.customerName,
-          customerZip: txn.customerZip,
-          cardNumber: txn.cardNumber,
-          cardExpiration: txn.cardExpiration,
-          cardCVV: txn.cardCVV,
-          timeStamp: txn.timeStamp,
-          amount: txn.amount,
-          approvalCode: txn.approvalCode
-    });
+module.exports = {
+    get: function() {
+        model.find(function(err, txns) {
+            console.log(txns);
+        });
+    },
+    post: function(txn) {
+        model.create({
+            merchantId: txn.merchantId,
+            customerName: txn.customerName,
+            customerZip: txn.customerZip,
+            cardNumber: txn.cardNumber,
+            cardExpiration: txn.cardExpiration,
+            cardCVV: txn.cardCVV,
+            timeStamp: txn.timeStamp,
+            amount: txn.amount,
+            approvalCode: txn.approvalCode
+        });
+        console.log("Txn with approvalCode:%s added to db", txn.approvalCode);
+    }
 }

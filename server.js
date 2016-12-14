@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var path = require("path");
-var database = require('./mongodb.js')
+var db = require('./mongodb.js')
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -37,7 +37,7 @@ var server = app.listen(8081, function () {
 })
 
 function storeTxn( txn ) {
-	database(txn);
+	db.post(txn);
 }
 
 function approval( txn ) {

@@ -32,6 +32,5 @@ function mainController($scope, $http) {
         this.data.cardExpiration = '';
         this.data.cardCVV = '';
         this.data.amount = '';
-        
     }
 }
